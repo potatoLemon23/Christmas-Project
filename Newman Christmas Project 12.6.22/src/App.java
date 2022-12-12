@@ -24,34 +24,40 @@ public class App {
             {"", "", "", "", ""},
             {"", "", "", "", ""},
         };
-        
-        naughtyNiceList = formatList(naughtyNiceList);
-        printList(naughtyNiceList, "ALL");
 
         //Accept new comma-delimited entries
         Scanner in = new Scanner(System.in);
         boolean enter = true;
         String[] newEntry;
 
-        // while (enter) {
+        printArray(naughtyNiceList);
 
-        //     System.out.println("\nEnter data for a new child separated by commas. (Type \"STOP\" to exit)");
+        for (int i = 0; i < naughtyNiceList.length; i++){
+            for (int j = 0; j < naughtyNiceList[i].length; j++){
+                naughtyNiceList[i][j] = naughtyNiceList[i][j].toUpperCase();
+            }
+            if (naughtyNiceList[i][2].equals ("NAUGHTY")){
+                naughtyNiceList[i][4] = "COAL";
+            }
+        }
 
-        //     //Prompt user for new input, store into a String array to be evaluated
-        //     newEntry = updateList(in.nextLine().split(","), naughtyNiceList[0].length);
+        printArray(naughtyNiceList);
 
-        //     //Incorrect length entry
-        //     if (newEntry[0].equals("INVALID")) {
-        //         System.out.println(Colors.Yellow + "Please enter a list of " + naughtyNiceList[0].length + " items." + Colors.Reset);
-        //     }
-
-        //     //Enter data
-        //     else if (newEntry.length == naughtyNiceList[0].length) {
-
-        //     }
-        // }
     }
-    public static void printList() {
+    public static void printArray(String[][] naughtyNiceList) {
+        for (int i = 0; i < naughtyNiceList.length; i++){
+            if (naughtyNiceList[i][2].toUpperCase().equals("NAUGHTY")){
+                System.out.println(Colors.Red);
+            }
+            else if (naughtyNiceList[i][2].toUpperCase().equals("NICE")){
+                System.out.println(Colors.Green);
+            }
+            else {
+                System.out.println(Colors.Yellow);
+            }
+        }
+
+    printArray(naughtyNiceList);
 
     }
 }
