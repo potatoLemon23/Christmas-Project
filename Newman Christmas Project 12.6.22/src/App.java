@@ -43,7 +43,11 @@ public class App {
 
         printArray(naughtyNiceList);
 
-        
+        System.out.println("Please enter information for a new child.");
+        Scanner sc= new Scanner(System.in);  
+        String childOne= sc.nextLine();   
+        in.reset();
+        System.out.println();
     }
     public static void printArray(String[][] naughtyNiceList) {
         for (int i = 0; i < naughtyNiceList.length; i++){
