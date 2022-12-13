@@ -43,6 +43,7 @@ public class App {
 
         printArray(naughtyNiceList);
 
+        
     }
     public static void printArray(String[][] naughtyNiceList) {
         for (int i = 0; i < naughtyNiceList.length; i++){
@@ -55,9 +56,11 @@ public class App {
             else {
                 System.out.println(Colors.Yellow);
             }
+            for (int j = 0; j < naughtyNiceList[i].length; j++){
+                System.out.print(naughtyNiceList[i][j] + " ");
+            }
+            System.out.print(Colors.Reset);
         }
-
-    printArray(naughtyNiceList);
 
     }
 }
