@@ -54,7 +54,7 @@ public class App {
             && naughtyNiceList[i][0].equals(" ")){
                 naughtyNiceList[i] = newEntry;
             }
-        }
+    }
         Scanner sc= new Scanner(System.in);  
         String childOne= sc.nextLine();
         in.reset();
