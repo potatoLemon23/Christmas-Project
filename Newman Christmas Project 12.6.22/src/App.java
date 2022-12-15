@@ -30,7 +30,9 @@ public class App {
         boolean enter = true;
         String[] newEntry;
 
+        System.out.print("\nOld List:");
         printArray(naughtyNiceList);
+        Thread.sleep(2000); 
 
         for (int i = 0; i < naughtyNiceList.length; i++){
             for (int j = 0; j < naughtyNiceList[i].length; j++){
@@ -41,13 +43,23 @@ public class App {
             }
         }
 
+        System.out.print("\nNew List:");
         printArray(naughtyNiceList);
+        Thread.sleep(2000); 
 
-        System.out.println("Please enter information for a new child.");
+        System.out.println("\nPlease enter information for a new child.");
+        newEntry = in.nextLine().toUpperCase().split(",");
+        for(int i = 0; i < naughtyNiceList.length; i++) {
+            if (naughtyNiceList[i][0].equals(" ")
+            && naughtyNiceList[i][0].equals(" ")){
+                naughtyNiceList[i] = newEntry;
+            }
+        }
         Scanner sc= new Scanner(System.in);  
-        String childOne= sc.nextLine();   
+        String childOne= sc.nextLine();
         in.reset();
         System.out.println();
+        printArray(naughtyNiceList);
     }
     public static void printArray(String[][] naughtyNiceList) {
         for (int i = 0; i < naughtyNiceList.length; i++){
