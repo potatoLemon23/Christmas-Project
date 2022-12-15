@@ -2,6 +2,7 @@ import java.util.Scanner;
 public class App {
     public static void main(String[] args) throws Exception {
 
+        //Original List
         String naughtyNiceList[][] = {
             {"LoGaN", "may", "Naughty",	"7730 Whitemarsh Court", "deOdeRant"},
             {"Cecilia",	"bOYer", "Nice", "8686 Elm St.", "PUddle"},
@@ -24,16 +25,19 @@ public class App {
             {"", "", "", "", ""},
             {"", "", "", "", ""},
         };
+        String yesno;
 
         //Accept new comma-delimited entries
         Scanner in = new Scanner(System.in);
         boolean enter = true;
         String[] newEntry;
 
+        //Print Old List
         System.out.print("\nOld List:");
         printArray(naughtyNiceList);
-        Thread.sleep(2000); 
+        Thread.sleep(1000); 
 
+        //Change Presents to Coal
         for (int i = 0; i < naughtyNiceList.length; i++){
             for (int j = 0; j < naughtyNiceList[i].length; j++){
                 naughtyNiceList[i][j] = naughtyNiceList[i][j].toUpperCase();
@@ -43,24 +47,60 @@ public class App {
             }
         }
 
+        //Print New List
+        System.out.println("\nThe Computer Gangster Elves are fixing your terrible list, please hold."); 
+        Thread.sleep(2000);
+        System.out.println("Meanwhile, please enjoy some reindeer jazz music.");
+        Thread.sleep(2000);
+        System.out.println("** jazzy music in background **");
+        Thread.sleep(2000);
         System.out.print("\nNew List:");
+        Thread.sleep(1000);
         printArray(naughtyNiceList);
-        Thread.sleep(2000); 
+        Thread.sleep(1000); 
 
-        System.out.println("\nPlease enter information for a new child.");
-        newEntry = in.nextLine().toUpperCase().split(",");
-        for(int i = 0; i < naughtyNiceList.length; i++) {
-            if (naughtyNiceList[i][0].equals(" ")
-            && naughtyNiceList[i][0].equals(" ")){
-                naughtyNiceList[i] = newEntry;
+        //Add Children?
+        do{
+            System.out.println("\nWould you like to add new children? If yes, type yes. If not, type no.");
+            yesno = in.nextLine().toUpperCase();
+
+            //No
+            if(yesno.equals("NO")) {
+                System.out.println("Good procrastinating, see you later!");
+                Thread.sleep(1000);
+                break;
             }
+
+            //Yes
+            else if(yesno.equals("YES")) {
+
+                System.out.println("Please enter a new child.");
+                newEntry = in.nextLine().toUpperCase().split(",");
+
+                for(int i = 0; i < naughtyNiceList.length; i++) {
+                    if (naughtyNiceList[i][0].equals("")
+                    && naughtyNiceList[i][1].equals("")
+                    && naughtyNiceList[i][2].equals("")
+                    && naughtyNiceList[i][3].equals("")
+                    && naughtyNiceList[i][4].equals("")){
+                        
+                        //Change presents to Coal
+                        naughtyNiceList[i] = newEntry;
+                        if (naughtyNiceList[i][2].equals ("NAUGHTY")){
+                            naughtyNiceList[i][4] = "COAL";
+                        }
+                        break;
+                    }
+                }
+                //New list
+                Thread.sleep(1000);
+                System.out.println();
+                printArray(naughtyNiceList);
+            }
+        } while(true);
     }
-        Scanner sc= new Scanner(System.in);  
-        String childOne= sc.nextLine();
-        in.reset();
-        System.out.println();
-        printArray(naughtyNiceList);
-    }
+
+    //Naughty or Nice Colors
     public static void printArray(String[][] naughtyNiceList) {
         for (int i = 0; i < naughtyNiceList.length; i++){
             if (naughtyNiceList[i][2].toUpperCase().equals("NAUGHTY")){
