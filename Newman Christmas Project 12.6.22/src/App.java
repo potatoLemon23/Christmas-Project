@@ -73,30 +73,47 @@ public class App {
 
             //Yes
             else if(yesno.equals("YES")) {
-
-                System.out.println("Please enter a new child.");
-                newEntry = in.nextLine().toUpperCase().split(",");
-
-                for(int i = 0; i < naughtyNiceList.length; i++) {
-                    if (naughtyNiceList[i][0].equals("")
-                    && naughtyNiceList[i][1].equals("")
-                    && naughtyNiceList[i][2].equals("")
-                    && naughtyNiceList[i][3].equals("")
-                    && naughtyNiceList[i][4].equals("")){
-                        
-                        //Change presents to Coal
-                        naughtyNiceList[i] = newEntry;
-                        if (naughtyNiceList[i][2].equals ("NAUGHTY")){
-                            naughtyNiceList[i][4] = "COAL";
-                        }
-                        break;
-                    }
-                }
-                //New list
                 Thread.sleep(1000);
-                System.out.println();
-                printArray(naughtyNiceList);
+                System.out.println("Please enter a new child. Use the format 'First Name,Last Name,Naughty or Nice,Address,Present'." + Colors.Red + " DO NOT USE SPACES!" + Colors.Reset);
+                newEntry = in.nextLine().toUpperCase().split(",");
+                if(newEntry.length == 5) {
+
+                    for(int i = 0; i < naughtyNiceList.length; i++) {
+                        if (naughtyNiceList[i][0].equals("")
+                        && naughtyNiceList[i][1].equals("")
+                        && naughtyNiceList[i][2].equals("")
+                        && naughtyNiceList[i][3].equals("")
+                        && naughtyNiceList[i][4].equals("")){
+                            
+                            //Change presents to Coal
+                            naughtyNiceList[i] = newEntry;
+                            if (naughtyNiceList[i][2].equals ("NAUGHTY")){
+                                naughtyNiceList[i][4] = "COAL";
+                            }
+                            break;
+                        }
+                    }
+                    //New list
+                    Thread.sleep(1000);
+                    System.out.println();
+                    printArray(naughtyNiceList);
+                }
+
+                //Not correct amount of columns
+                else {
+                    Thread.sleep(1000);
+                    System.out.print(Colors.Red + "That's not the correct amount of information!! Use the correct format!!" + Colors.Reset);
+                    Thread.sleep(1000);
+                }
             }
+            
+            // Not YES or NO
+            else {
+                Thread.sleep(1000);
+                System.out.print(Colors.Red + "Yes or no only!!" + Colors.Reset);
+                Thread.sleep(1000);
+            }
+
         } while(true);
     }
 
