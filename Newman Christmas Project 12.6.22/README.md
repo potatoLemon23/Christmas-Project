@@ -15,8 +15,10 @@
       2. If yes:
          1. Convert all Strings to uppercase (toUpperCase)
          2. Change gifts to coal if the child is marked naughty (.equals)
-5. Display the new data, then return to #4.
-6. Change colors of lines
+      3. If not yes or no, prompt user for yes or no (else)
+5. If columns are not the correct amount, prompt user for correct format (else)
+6. Display the new data, then return to #4.
+7. Change colors of lines
    1. Naughty = Red (.equals and Colors.Red)
    2. Nice = Green (.equals and Colors.Green)
    3. Unlisted = Yellow (.equals and Colors.Yellow)
