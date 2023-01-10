@@ -37,11 +37,13 @@ public class App {
         printArray(naughtyNiceList);
         Thread.sleep(1000); 
 
-        //Change Presents to Coal
+        //Change case to upper case
         for (int i = 0; i < naughtyNiceList.length; i++){
             for (int j = 0; j < naughtyNiceList[i].length; j++){
                 naughtyNiceList[i][j] = naughtyNiceList[i][j].toUpperCase();
             }
+
+            //Change naughty presents to coal
             if (naughtyNiceList[i][2].equals ("NAUGHTY")){
                 naughtyNiceList[i][4] = "COAL";
             }
@@ -59,7 +61,7 @@ public class App {
         printArray(naughtyNiceList);
         Thread.sleep(1000); 
 
-        //Add Children?
+        //Add Children? Changes response to Upper Case
         do{
             System.out.println("\nWould you like to add new children? If yes, type yes. If not, type no.");
             yesno = in.nextLine().toUpperCase();
@@ -75,6 +77,8 @@ public class App {
             else if(yesno.equals("YES")) {
                 Thread.sleep(1000);
                 System.out.println("Please enter a new child. Use the format 'First Name,Last Name,Naughty or Nice,Address,Present'." + Colors.Red + " DO NOT USE SPACES!" + Colors.Reset);
+                
+                //Changes response to Upper Case
                 newEntry = in.nextLine().toUpperCase().split(",");
                 if(newEntry.length == 5) {
 
@@ -117,7 +121,7 @@ public class App {
         } while(true);
     }
 
-    //Naughty or Nice Colors
+    //Naughty, Nice, or Neither Colors
     public static void printArray(String[][] naughtyNiceList) {
         for (int i = 0; i < naughtyNiceList.length; i++){
             if (naughtyNiceList[i][2].toUpperCase().equals("NAUGHTY")){
